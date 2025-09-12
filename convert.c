@@ -21,10 +21,10 @@ void div_convert(uint32_t n, int base, char *out) {
     while (n > 0) {
         int rem = n % base;
         n = n / base;
-        if ( remainder < 10) {
-          temp [pos ++] = ’0’ + remainder ;
+        if ( rem < 10) {
+          temp [pos ++] = ’0’ + rem ;
         } else {
-          temp [pos ++] = ’A’ + ( remainder - 10) ;}
+          temp [pos ++] = ’A’ + ( rem - 10) ;}
     }
 
     /* reversal */
@@ -57,10 +57,10 @@ void sub_convert(uint32_t n, int base, char *out) {
         uint32_t digit = (uint32_t)(n / power);
         n -= digit * power;
 
-        if (rem < 10) {
-          temp[pos++] = '0' + rem;
+        if (digit < 10) {
+          out[pos++] = '0' + digit;
         }else {
-          temp[pos++] = 'A' + (rem - 10);}
+          out[pos++] = 'A' + (digit - 10);}
         power /= base;
     }
     out[pos] = '\0';
